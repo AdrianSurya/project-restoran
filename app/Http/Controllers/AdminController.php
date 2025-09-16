@@ -12,7 +12,7 @@ class AdminController extends Controller
     {
         // kalau sudah login, langsung ke admin.menu
         if (session()->has('admin_id')) {
-            return redirect()->route('admin.menu');
+            return redirect()->route('admin.home.menu');
         }
         return view('admin.auth.logins');
     }
@@ -35,7 +35,7 @@ class AdminController extends Controller
                 'role'     => $admin->role
             ]);
 
-            return redirect()->route('admin.menu'); // pindah ke menu admin
+            return redirect()->route('admin.home.menu'); // pindah ke menu admin
         }
 
         return back()->withErrors(['login_error' => 'Username atau Password salah / bukan admin']);
