@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="bg-gray-100 min-h-screen flex justify-center items-center">
   <div class="bg-white p-6 rounded-lg shadow w-full max-w-lg">
@@ -8,30 +9,17 @@
 
       <div class="mb-4">
         <label class="block font-semibold">Nama Menu</label>
-        <input type="text" name="name" class="w-full border rounded px-3 py-2" required>
-      </div>
-
-      <div class="mb-4">
-        <label class="block font-semibold">Jenis</label>
-        <select name="type" class="w-full border rounded px-3 py-2" required>
-          <option value="Food">Food</option>
-          <option value="Drink">Drink</option>
-        </select>
+        <input type="text" name="nama_menu" class="w-full border rounded px-3 py-2" required>
       </div>
 
       <div class="mb-4">
         <label class="block font-semibold">Harga</label>
-        <input type="number" name="price" class="w-full border rounded px-3 py-2" required>
+        <input type="number" name="harga" class="w-full border rounded px-3 py-2" required>
       </div>
 
       <div class="mb-4">
-        <label class="block font-semibold">Deskripsi</label>
-        <textarea name="description" class="w-full border rounded px-3 py-2"></textarea>
-      </div>
-
-      <div class="mb-4">
-        <label class="block font-semibold">Foto</label>
-        <input type="file" name="gambar" class="w-full border rounded px-3 py-2" required>
+        <label class="block font-semibold">Gambar</label>
+        <input type="file" name="gambar" class="w-full border rounded px-3 py-2">
       </div>
 
       <div class="flex justify-end">

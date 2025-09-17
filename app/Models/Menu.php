@@ -15,7 +15,8 @@ class Menu extends Model
 
     protected $fillable = [
         'Nama_menu',
-        'Harga'
+        'Harga',
+        'gambar'
     ];
 
     public function detailOrders()

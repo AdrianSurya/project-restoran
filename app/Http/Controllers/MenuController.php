@@ -42,12 +42,13 @@ public function store(Request $request)
     return redirect()->route('admin.home.menu')->with('success', 'Menu berhasil ditambahkan.');
 }
 
-public function edit(Menu $menu)
+public function edit($id)
 {
+    $menu = Menu::findOrFail($id);
     return view('admin.home.edit', compact('menu'));
 }
 
-public function update(Request $request, Menu $menu)
+public function update(Request $request, $id)
 {
     $request->validate([
         'nama_menu' => 'required',
@@ -55,8 +56,10 @@ public function update(Request $request, Menu $menu)
         'gambar' => 'image|mimes:jpeg,png,jpg|max:2048'
     ]);
 
+    $menu = Menu::findOrFail($id);
     $menu->nama_menu = $request->nama_menu;
     $menu->harga = $request->harga;
+
 
     if ($request->hasFile('gambar')) {
         $file = $request->file('gambar');
@@ -72,6 +75,6 @@ public function update(Request $request, Menu $menu)
 public function destroy(Menu $menu)
 {
     $menu->delete();
-    return redirect()->route('admin.menu.index')->with('success', 'Menu berhasil dihapus.');
+    return redirect()->route('admin.home.menu')->with('success', 'Menu berhasil dihapus.');
 }
 }

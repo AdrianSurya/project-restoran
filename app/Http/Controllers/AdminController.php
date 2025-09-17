@@ -15,7 +15,20 @@ class AdminController extends Controller
             return redirect()->route('admin.home.menu');
         }
         return view('admin.auth.logins');
+
     }
+
+        public function profile()
+    {
+        // Pastikan admin sudah login
+        if (!session()->has('admin_id')) {
+            return redirect()->route('login');
+        }
+
+        $admin = Admin::find(session('admin_id'));
+        return view('admin.profile', compact('admin'));
+    }
+
 
     public function login(Request $request)
     {
@@ -23,6 +36,8 @@ class AdminController extends Controller
             'username' => 'required',
             'password' => 'required'
         ]);
+
+    
 
         // dd($request);
 
